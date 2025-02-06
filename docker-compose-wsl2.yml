@@ -1,0 +1,19 @@
+version: "3.9"
+services:
+  comfyui-intel-gpu:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: comfyui-intel-gpu
+    network_mode: host
+    restart: always
+    devices:
+      - /dev/dri:/dev/dri
+    volumes:
+      - /usr/lib/wsl:/usr/lib/wsl
+      - /dev/dxg:/dev/dxg
+      - /mnt/d/ComfyUI/checkpoints:/ComfyUI/models/checkpoints
+      - /mnt/d/ComfyUI/custom_nodes:/ComfyUI/custom_nodes
+      - /mnt/d/ComfyUI/output:/ComfyUI/output
+      - /mnt/d/ComfyUI/user:/ComfyUI/user
+
